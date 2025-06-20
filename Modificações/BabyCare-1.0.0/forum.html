@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
     <head>
         <meta charset="utf-8">
-        <title>BleedWithDignity</title>
+        <title>Fórum - BleedWithDignity</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -28,8 +28,72 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
 
-        
-
+        <style>
+            .forum-post {
+                border-radius: 10px;
+                margin-bottom: 20px;
+                transition: all 0.3s;
+            }
+            .forum-post:hover {
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .post-actions {
+                border-top: 1px solid #eee;
+                padding-top: 10px;
+            }
+            .action-btn {
+                cursor: pointer;
+                margin-right: 15px;
+                color: #6c757d;
+            }
+            .action-btn:hover {
+                color: #0d6efd;
+            }
+            .action-btn.active {
+                color: #0d6efd;
+            }
+            .comments-section {
+                background-color: #f8f9fa;
+                border-radius: 0 0 10px 10px;
+                padding: 15px;
+                margin-top: 10px;
+                display: none;
+            }
+            .comment {
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: white;
+                border-radius: 5px;
+            }
+            .tag {
+                display: inline-block;
+                background-color: #e9ecef;
+                padding: 2px 8px;
+                border-radius: 20px;
+                font-size: 0.8em;
+                margin-right: 5px;
+                color: #495057;
+            }
+            .user-avatar {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            #new-post-form {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                margin-bottom: 30px;
+            }
+            .saved-posts-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
+        </style>
     </head>
 
     <body>
@@ -77,7 +141,7 @@
                             </div>
                         </div>
                         <a href="calendario.html" class="nav-item nav-link mx-2">Calendário Menstrual</a>
-                        <a href="forum.html" class="nav-item nav-link  active">Fórum</a>
+                        <a href="forum.html" class="nav-item nav-link active">Fórum</a>
                         <a href="contact.html" class="nav-item nav-link mx-2">Contato</a>
                     </div>
                         <div class="d-flex me-4">
@@ -99,12 +163,12 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Insira uma palavra chave</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Buscar no Fórum</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <input type="search" class="form-control p-3" placeholder="Digite palavras-chave" aria-describedby="search-icon-1">
                             <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                         </div>
                     </div>
@@ -118,90 +182,259 @@
         <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container text-center py-5">
                 <h1 class="display-2 text-white mb-4">Fórum</h1>
-                
+                <p class="text-white">Compartilhe experiências, tire dúvidas e converse sobre saúde menstrual</p>
             </div>
         </div>
         <!-- Page Header End -->
 
 
-        <!-- Events Start -->
-        <div class="container-fluid events py-5 bg-light">
+        <!-- Forum Start -->
+        <div class="container-fluid py-5 bg-light">
             <div class="container py-5">
-                <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-                    <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">Our Events</h4>
-                    <h1 class="mb-5 display-3">Our Upcoming Events</h1>
-                </div>
-                <div class="row g-5 justify-content-center">
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="events-item bg-primary rounded">
-                            <div class="events-inner position-relative">
-                                <div class="events-img overflow-hidden rounded-circle position-relative">
-                                    <img src="img/event-1.jpg" class="img-fluid w-100 rounded-circle" alt="Image">
-                                    <div class="event-overlay">
-                                        <a href="img/event-1.jpg" data-lightbox="event-1"><i class="fas fa-search-plus text-white fa-2x"></i></a>
-                                    </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <!-- New Post Form -->
+                        <div id="new-post-form" class="wow fadeIn" data-wow-delay="0.1s">
+                            <h4 class="mb-4">Criar novo post</h4>
+                            <form id="post-form">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="post-title" placeholder="Título do post" required>
                                 </div>
-                                <div class="px-4 py-2 bg-secondary text-white text-center events-rate">29 Nov</div>
-                                <div class="d-flex justify-content-between px-4 py-2 bg-secondary">
-                                    <small class="text-white"><i class="fas fa-calendar me-1 text-primary"></i> 10:00am - 12:00pm</small>
-                                    <small class="text-white"><i class="fas fa-map-marker-alt me-1 text-primary"></i> New York</small>
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="post-content" rows="3" placeholder="O que você gostaria de compartilhar?" required></textarea>
                                 </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="post-tags" placeholder="Tags (separadas por vírgula)">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Publicar</button>
+                            </form>
+                        </div>
+
+                        <!-- Filter Options -->
+                        <div class="d-flex justify-content-between mb-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Filtrar por
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                                    <li><a class="dropdown-item" href="#">Mais recentes</a></li>
+                                    <li><a class="dropdown-item" href="#">Mais populares</a></li>
+                                    <li><a class="dropdown-item" href="#">Sem respostas</a></li>
+                                </ul>
                             </div>
-                            <div class="events-text p-4 border border-primary bg-white border-top-0 rounded-bottom">
-                                <a href="#" class="h4">Music & drawing workshop</a>
-                                <p class="mb-0 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur,</p>
+                            <div>
+                                <input type="text" class="form-control" placeholder="Buscar no fórum...">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="events-item bg-primary rounded">
-                            <div class="events-inner position-relative">
-                                <div class="events-img overflow-hidden rounded-circle position-relative">
-                                    <img src="img/event-2.jpg" class="img-fluid w-100 rounded-circle" alt="Image">
-                                    <div class="event-overlay">
-                                        <a href="img/event-3.jpg" data-lightbox="event-1"><i class="fas fa-search-plus text-white fa-2x"></i></a>
+
+                        <!-- Posts List -->
+                        <div id="posts-container">
+                            <!-- Post 1 -->
+                            <div class="forum-post bg-white p-4 wow fadeIn" data-wow-delay="0.3s">
+                                <div class="d-flex mb-3">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User" class="user-avatar me-3">
+                                    <div>
+                                        <h5 class="mb-1">Dúvida sobre absorventes reutilizáveis</h5>
+                                        <p class="text-muted small mb-0">Postado por <strong>Ana Silva</strong> em 15/06/2023</p>
                                     </div>
                                 </div>
-                                <div class="px-4 py-2 bg-secondary text-white text-center events-rate">29 Nov</div>
-                                <div class="d-flex justify-content-between px-4 py-2 bg-secondary">
-                                    <small class="text-white"><i class="fas fa-calendar me-1 text-primary"></i> 10:00am - 12:00pm</small>
-                                    <small class="text-white"><i class="fas fa-map-marker-alt me-1 text-primary"></i> New York</small>
+                                <p class="mb-3">Olá pessoal, estou pensando em migrar para absorventes reutilizáveis para reduzir meu impacto ambiental, mas tenho algumas dúvidas sobre higienização e durabilidade. Alguém aqui já usa e pode compartilhar experiências?</p>
+                                
+                                <div class="mb-3">
+                                    <span class="tag">sustentabilidade</span>
+                                    <span class="tag">absorventes</span>
+                                    <span class="tag">dúvidas</span>
                                 </div>
-                            </div>
-                            <div class="events-text p-4 border border-primary bg-white border-top-0 rounded-bottom">
-                                <a href="#" class="h4">Why need study</a>
-                                <p class="mb-0 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur,</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="events-item bg-primary rounded">
-                            <div class="events-inner position-relative">
-                                <div class="events-img overflow-hidden rounded-circle position-relative">
-                                    <img src="img/event-3.jpg" class="img-fluid w-100 rounded-circle" alt="Image">
-                                    <div class="event-overlay">
-                                        <a href="img/event-3.jpg" data-lightbox="event-1"><i class="fas fa-search-plus text-white fa-2x"></i></a>
+                                
+                                <div class="post-actions d-flex">
+                                    <div class="action-btn like-btn active">
+                                        <i class="fas fa-heart me-1"></i> <span>24</span>
+                                    </div>
+                                    <div class="action-btn comment-btn">
+                                        <i class="fas fa-comment me-1"></i> <span>8</span>
+                                    </div>
+                                    <div class="action-btn save-btn active ms-auto">
+                                        <i class="fas fa-bookmark me-1"></i> Salvar
                                     </div>
                                 </div>
-                                <div class="px-4 py-2 bg-secondary text-white text-center events-rate">29 Nov</div>
-                                <div class="d-flex justify-content-between px-4 py-2 bg-secondary">
-                                    <small class="text-white"><i class="fas fa-calendar me-1 text-primary"></i> 10:00am - 12:00pm</small>
-                                    <small class="text-white"><i class="fas fa-map-marker-alt me-1 text-primary"></i> New York</small>
+                                
+                                <!-- Comments Section -->
+                                <div class="comments-section">
+                                    <div class="comment">
+                                        <div class="d-flex">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                            <div>
+                                                <strong>Maria Oliveira</strong>
+                                                <p class="small text-muted mb-1">16/06/2023</p>
+                                                <p>Uso há 6 meses e amo! No começo é estranho, mas você se acostuma. Lavo na máquina com água fria e sabão neutro. Dura cerca de 2 anos se cuidar bem.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment">
+                                        <div class="d-flex">
+                                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                            <div>
+                                                <strong>Carla Santos</strong>
+                                                <p class="small text-muted mb-1">15/06/2023</p>
+                                                <p>Recomendo começar com um kit pequeno para testar antes de investir em vários. Eu tenho 5 e já é suficiente para meu fluxo moderado.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-3">
+                                        <form class="comment-form">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Adicione um comentário...">
+                                                <button class="btn btn-primary" type="submit">Enviar</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="events-text p-4 border border-primary bg-white border-top-0 rounded-bottom">
-                                <a href="#" class="h4">Child health consciousness</a>
-                                <p class="mb-0 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur,</p>
+                            
+                            <!-- Post 2 -->
+                            <div class="forum-post bg-white p-4 wow fadeIn" data-wow-delay="0.4s">
+                                <div class="d-flex mb-3">
+                                    <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="User" class="user-avatar me-3">
+                                    <div>
+                                        <h5 class="mb-1">Como lidar com cólicas intensas?</h5>
+                                        <p class="text-muted small mb-0">Postado por <strong>Juliana Costa</strong> em 12/06/2023</p>
+                                    </div>
+                                </div>
+                                <p class="mb-3">Gostaria de compartilhar que sofro com cólicas muito fortes que me impedem de trabalhar nos primeiros dias da menstruação. Já tentei vários remédios e chás, mas nada parece ajudar muito. Alguém tem alguma dica ou passou por algo parecido?</p>
+                                
+                                <div class="mb-3">
+                                    <span class="tag">cólicas</span>
+                                    <span class="tag">saúde</span>
+                                    <span class="tag">dicas</span>
+                                </div>
+                                
+                                <div class="post-actions d-flex">
+                                    <div class="action-btn like-btn">
+                                        <i class="fas fa-heart me-1"></i> <span>15</span>
+                                    </div>
+                                    <div class="action-btn comment-btn">
+                                        <i class="fas fa-comment me-1"></i> <span>5</span>
+                                    </div>
+                                    <div class="action-btn save-btn ms-auto">
+                                        <i class="fas fa-bookmark me-1"></i> Salvar
+                                    </div>
+                                </div>
+                                
+                                <!-- Comments Section (hidden by default) -->
+                                <div class="comments-section">
+                                    <div class="comment">
+                                        <div class="d-flex">
+                                            <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                            <div>
+                                                <strong>Fernanda Lima</strong>
+                                                <p class="small text-muted mb-1">13/06/2023</p>
+                                                <p>Juliana, já considerou a possibilidade de endometriose? Eu tinha cólicas horríveis e descobri que era isso. Depois do diagnóstico e tratamento, melhorou muito.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-3">
+                                        <form class="comment-form">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Adicione um comentário...">
+                                                <button class="btn btn-primary" type="submit">Enviar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Post 3 -->
+                            <div class="forum-post bg-white p-4 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="d-flex mb-3">
+                                    <img src="https://randomuser.me/api/portraits/women/75.jpg" alt="User" class="user-avatar me-3">
+                                    <div>
+                                        <h5 class="mb-1">Relato: Primeira menstruação da minha filha</h5>
+                                        <p class="text-muted small mb-0">Postado por <strong>Patrícia Almeida</strong> em 10/06/2023</p>
+                                    </div>
+                                </div>
+                                <p class="mb-3">Queria compartilhar essa experiência linda que tivemos em casa. Minha filha de 11 anos menstruou pela primeira vez e, graças às conversas abertas que sempre tivemos, ela não teve medo, apenas veio me contar como se fosse a coisa mais natural do mundo (e é!). Preparamos um kit menstrual juntas e celebramos essa nova fase. Como foi a experiência de vocês?</p>
+                                
+                                <div class="mb-3">
+                                    <span class="tag">primeira-menstruação</span>
+                                    <span class="tag">educação</span>
+                                    <span class="tag">relatos</span>
+                                </div>
+                                
+                                <div class="post-actions d-flex">
+                                    <div class="action-btn like-btn">
+                                        <i class="fas fa-heart me-1"></i> <span>32</span>
+                                    </div>
+                                    <div class="action-btn comment-btn">
+                                        <i class="fas fa-comment me-1"></i> <span>12</span>
+                                    </div>
+                                    <div class="action-btn save-btn active ms-auto">
+                                        <i class="fas fa-bookmark me-1"></i> Salvar
+                                    </div>
+                                </div>
+                                
+                                <!-- Comments Section (hidden by default) -->
+                                <div class="comments-section">
+                                    <div class="comment">
+                                        <div class="d-flex">
+                                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                            <div>
+                                                <strong>Roberta Gonçalves</strong>
+                                                <p class="small text-muted mb-1">11/06/2023</p>
+                                                <p>Que lindo, Patrícia! Parabéns pelo trabalho de educação com sua filha. Infelizmente na minha época foi muito diferente, foi um susto e ninguém me explicou direito o que estava acontecendo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment">
+                                        <div class="d-flex">
+                                            <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                            <div>
+                                                <strong>Amanda Rocha</strong>
+                                                <p class="small text-muted mb-1">10/06/2023</p>
+                                                <p>Adorei sua abordagem! Estou grávida de uma menina e já estou pensando em como vou lidar com isso no futuro. Vou guardar sua experiência como inspiração!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-3">
+                                        <form class="comment-form">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Adicione um comentário...">
+                                                <button class="btn btn-primary" type="submit">Enviar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
+                        <!-- Pagination -->
+                        <nav aria-label="Page navigation" class="mt-5 wow fadeIn" data-wow-delay="0.6s">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Próxima</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Events End-->
+        <!-- Forum End -->
 
-
-    
+        <!-- Saved Posts Button -->
+        <button class="btn btn-primary saved-posts-btn rounded-pill shadow">
+            <i class="fas fa-bookmark me-2"></i> Posts salvos
+        </button>
 
         <!-- Copyright Start -->
         <div class="container-fluid copyright bg-dark py-4">
@@ -211,9 +444,6 @@
                         <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>BleedWithDignity</a>, todos os direitos reservados.</span>
                     </div>
                     <div class="col-md-6 my-auto text-center text-md-end text-white">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
                         Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a clas="border-bottom" href="https://themewagon.com">ThemeWagon</a>
                     </div>
                 </div>
@@ -237,6 +467,74 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Toggle comments section
+            $('.comment-btn').click(function(e) {
+                e.preventDefault();
+                $(this).closest('.forum-post').find('.comments-section').slideToggle();
+            });
+            
+            // Like button functionality
+            $('.like-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                let countElement = $(this).find('span');
+                let currentCount = parseInt(countElement.text());
+                if ($(this).hasClass('active')) {
+                    countElement.text(currentCount + 1);
+                } else {
+                    countElement.text(currentCount - 1);
+                }
+            });
+            
+            // Save button functionality
+            $('.save-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                if ($(this).hasClass('active')) {
+                    $(this).html('<i class="fas fa-bookmark me-1"></i> Salvo');
+                } else {
+                    $(this).html('<i class="fas fa-bookmark me-1"></i> Salvar');
+                }
+            });
+            
+            // Form submission
+            $('#post-form').submit(function(e) {
+                e.preventDefault();
+                alert('Post criado com sucesso! Em uma implementação real, isso seria enviado para o servidor.');
+                $('#post-title, #post-content, #post-tags').val('');
+            });
+            
+            // Comment form submission
+            $('.comment-form').submit(function(e) {
+                e.preventDefault();
+                let commentText = $(this).find('input').val();
+                if (commentText.trim() !== '') {
+                    let newComment = `
+                        <div class="comment">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                <div>
+                                    <strong>Você</strong>
+                                    <p class="small text-muted mb-1">Agora</p>
+                                    <p>${commentText}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $(this).closest('.comments-section').find('.comment-form').before(newComment);
+                    $(this).find('input').val('');
+                    
+                    // Update comment count
+                    let commentCountElement = $(this).closest('.forum-post').find('.comment-btn span');
+                    let currentCount = parseInt(commentCountElement.text());
+                    commentCountElement.text(currentCount + 1);
+                }
+            });
+        });
+    </script>
     </body>
 
 </html>
