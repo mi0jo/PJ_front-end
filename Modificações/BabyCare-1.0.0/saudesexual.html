@@ -1,72 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
-    <head>
-        <meta charset="utf-8">
-        <title>BleedWithDignity</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+<head>
+    <meta charset="utf-8">
+    <title>Saúde Sexual e Reprodutiva - BleedWithDignity</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="saúde sexual, saúde reprodutiva, direitos sexuais, educação sexual" name="keywords">
+    <meta content="Informações sobre saúde sexual e reprodutiva, direitos e cuidados essenciais" name="description">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet"> 
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet"> 
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <!-- Libraries Stylesheet -->
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
+    <style>
+        .content-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
         
+        .comment-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .comment {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .comment-actions {
+            margin-top: 10px;
+        }
+        
+        .action-btn {
+            cursor: pointer;
+            margin-right: 15px;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .action-btn:hover {
+            color: #0d6efd;
+        }
+        
+        .action-btn.active {
+            color: #0d6efd;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .comment-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .highlight-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0d6efd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .fact-card {
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #fff5f5;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .img-border {
+            border: 3px solid #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
 
-    </head>
+        /* New responsive styles */
+        @media (max-width: 991.98px) {
+            .sidebar-content {
+                order: -1;
+                margin-bottom: 30px;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+            
+            .comment-section {
+                margin-top: 0;
+                border-top: none;
+            }
+        }
 
-    <body>
+        .promote-item {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
-        </div>
-        <!-- Spinner End -->
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
 
-
-        <!-- Navbar start -->
-        <div class="container-fluid border-bottom bg-light wow fadeIn" data-wow-delay="0.1s">
-            <div class="container topbar bg-primary d-none d-lg-block py-2" style="border-radius: 0 40px">
-                <div class="d-flex justify-content-between">
-                    <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">bleedwithdignity@gmail.com</a></small>
-                    </div>
-                    <div class="top-link pe-2">
-                        <a href="" class="btn btn-light btn-sm-square rounded-circle"><i class="fab fa-instagram text-secondary"></i></a>
-                    </div>
+    <!-- Navbar Start -->
+    <div class="container-fluid border-bottom bg-light wow fadeIn" data-wow-delay="0.1s">
+        <div class="container topbar bg-primary d-none d-lg-block py-2" style="border-radius: 0 40px">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">bleedwithdignity@gmail.com</a></small>
+                </div>
+                <div class="top-link pe-2">
+                    <a href="" class="btn btn-light btn-sm-square rounded-circle"><i class="fab fa-instagram text-secondary"></i></a>
                 </div>
             </div>
-            <div class="container px-0">
-                <nav class="navbar navbar-light navbar-expand-xl py-3">
-                    <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">BleedWith<span class="text-secondary">Dignity</span></h1></a>
-                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light navbar-expand-xl py-3">
+                <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">BleedWith<span class="text-secondary">Dignity</span></h1></a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav d-flex flex-row mx-auto align-items-center">
                         <a href="index.html" class="nav-item nav-link mx-2">Tela Inicial</a>
                         <div class="nav-item dropdown mx-2">
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Educação Sexual</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                 <a href="dignidademenstrual.html" class="dropdown-item">O que é Dignidade Menstrual?</a>
-                                <a href="saudesexual.html" class="dropdown-item">Saúde Sexual e Reprodutiva</a>
+                                <a href="saudesexual.html" class="dropdown-item active">Saúde Sexual e Reprodutiva</a>
                                 <a href="produtos.html" class="dropdown-item">Produtos Menstruais para Todos</a>
                                 <a href="tiposdeabsorventes.html" class="dropdown-item">Tipos de Absorventes</a>
                                 <a href="ciclomenstrual.html" class="dropdown-item">Ciclo Menstrual</a>
@@ -77,151 +173,280 @@
                             </div>
                         </div>
                         <a href="calendario.html" class="nav-item nav-link mx-2">Calendário Menstrual</a>
-                        <a href="forum.html" class="nav-item nav-link ">Fórum</a>
+                        <a href="forum.html" class="nav-item nav-link">Fórum</a>
                         <a href="contact.html" class="nav-item nav-link mx-2">Contato</a>
                     </div>
-                        <div class="d-flex me-4">
-                            <div id="phone-tada" class="d-flex align-items-center justify-content-center">
-                                
-                            </div>
-                           
-                        </div>
-                        <button class="btn-search btn btn-primary btn-md-square rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-white"></i></button>
+                    <div class="d-flex me-4">
+                        <div id="phone-tada" class="d-flex align-items-center justify-content-center"></div>
                     </div>
-                </nav>
-            </div>
+                    <button class="btn-search btn btn-primary btn-md-square rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-white"></i></button>
+                </div>
+            </nav>
         </div>
-        <!-- Navbar End -->
+    </div>
+    <!-- Navbar End -->
 
-
-        <!-- Modal Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Insira uma palavra-chave</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center">
-                        <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                        </div>
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Buscar no site</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control p-3" placeholder="Digite palavras-chave" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal Search End -->
+    </div>
+    <!-- Modal Search End -->
 
-        
-        <!-- Page Header Start -->
-        <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container text-center py-5">
-                <h1 class="display-2 text-white mb-4">Saúde Sexual e Reprodutiva</h1>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-2 text-white mb-4">Saúde Sexual e Reprodutiva</h1>
+            <p class="text-white">Conhecimento, direitos e cuidados essenciais</p>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Content Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Main Content Column -->
+                <div class="col-lg-8 main-content">
+                    <!-- Main Content -->
+                    <div class="content-section wow fadeIn" data-wow-delay="0.1s">
+                        <h2 class="mb-4">O que é Saúde Sexual e Reprodutiva?</h2>
+                        <p class="lead">Saúde sexual e reprodutiva é um estado de completo bem-estar físico, mental e social em todos os aspectos relacionados à sexualidade e ao sistema reprodutivo.</p>
+                        
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Saúde Sexual e Reprodutiva" class="img-fluid rounded mb-4 img-border">
+                        
+                        <p>Segundo a Organização Mundial da Saúde (OMS), a saúde sexual e reprodutiva implica que as pessoas possam:</p>
+                        <ol>
+                            <li>Ter uma vida sexual satisfatória e segura</li>
+                            <li>Ter a capacidade de reproduzir e a liberdade de decidir se, quando e com que frequência fazê-lo</li>
+                            <li>Acessar informações e métodos contraceptivos seguros, eficazes e acessíveis</li>
+                            <li>Acessar serviços de saúde adequados para gravidez, parto seguro e cuidados pós-natais</li>
+                        </ol>
+                        
+                        <div class="highlight-box wow fadeIn" data-wow-delay="0.2s">
+                            <h4 class="text-primary"><i class="fas fa-quote-left me-2"></i>Direitos Sexuais e Reprodutivos</h4>
+                            <p>Os direitos sexuais e reprodutivos são direitos humanos fundamentais que incluem o direito de todas as pessoas de decidirem sobre seu corpo, sua sexualidade e sua saúde reprodutiva, livres de discriminação, coerção e violência.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Why It Matters -->
+                    <div class="content-section wow fadeIn" data-wow-delay="0.3s">
+                        <h2 class="mb-4">Por que a Saúde Sexual e Reprodutiva é importante?</h2>
+                        <p>Uma saúde sexual e reprodutiva adequada impacta positivamente diversos aspectos da vida:</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="fact-card wow fadeIn" data-wow-delay="0.4s">
+                                    <h5><i class="fas fa-female text-danger me-2"></i> Saúde da Mulher</h5>
+                                    <p>Reduz mortalidade materna, previne infecções sexualmente transmissíveis e possibilita planejamento familiar consciente.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fact-card wow fadeIn" data-wow-delay="0.5s">
+                                    <h5><i class="fas fa-venus-mars text-danger me-2"></i> Relacionamentos</h5>
+                                    <p>Promove relacionamentos saudáveis baseados em respeito mútuo, consentimento e comunicação aberta sobre sexualidade.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fact-card wow fadeIn" data-wow-delay="0.6s">
+                                    <h5><i class="fas fa-graduation-cap text-danger me-2"></i> Educação</h5>
+                                    <p>Jovens com acesso à educação sexual têm menor probabilidade de gravidez não planejada e maior capacidade de tomar decisões informadas.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fact-card wow fadeIn" data-wow-delay="0.7s">
+                                    <h5><i class="fas fa-globe-americas text-danger me-2"></i> Sociedade</h5>
+                                    <p>Contribui para o desenvolvimento social e econômico, reduzindo desigualdades de gênero e promovendo equidade.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- How to Promote -->
+                    <div class="content-section wow fadeIn" data-wow-delay="0.4s">
+                        <h2 class="mb-4">Como cuidar da sua Saúde Sexual e Reprodutiva?</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 promote-item">
+                                <img src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Prevenção" class="img-fluid rounded img-border mb-3">
+                                <h4>1. Prevenção e Proteção</h4>
+                                <p>Use métodos contraceptivos adequados e proteja-se contra ISTs com preservativos. Realize exames periódicos e esteja atento(a) a qualquer alteração em seu corpo.</p>
+                            </div>
+                            
+                            <div class="col-md-6 promote-item">
+                                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Acesso à informação" class="img-fluid rounded img-border mb-3">
+                                <h4>2. Acesso à Informação</h4>
+                                <p>Busque informações em fontes confiáveis sobre sexualidade, métodos contraceptivos, prevenção de ISTs e direitos reprodutivos. Conhecer seu corpo é fundamental.</p>
+                            </div>
+                            
+                            <div class="col-md-6 promote-item">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Acompanhamento médico" class="img-fluid rounded img-border mb-3">
+                                <h4>3. Acompanhamento Médico</h4>
+                                <p>Mantenha consultas regulares com ginecologista, urologista ou outros especialistas. Não espere surgirem problemas para procurar ajuda profissional.</p>
+                            </div>
+                            
+                            <div class="col-md-6 promote-item">
+                                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Autoconhecimento" class="img-fluid rounded img-border mb-3">
+                                <h4>4. Autoconhecimento</h4>
+                                <p>Conheça seu corpo, seus ciclos e suas necessidades. O autocuidado e a autoestima são fundamentais para uma vida sexual saudável e prazerosa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comment Section -->
+                    <div class="comment-section wow fadeIn" data-wow-delay="0.5s">
+                        <h3 class="mb-4"><i class="fas fa-comments text-secondary me-2"></i>Compartilhe sua opinião</h3>
+                        <p>Este espaço é para troca de experiências e informações sobre saúde sexual e reprodutiva. Respeite sempre a diversidade de vivências.</p>
+                        
+                        <!-- Existing Comments -->
+                        <div class="comment wow fadeIn" data-wow-delay="0.6s">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User" class="user-avatar">
+                                <div>
+                                    <h5 class="mb-1">Ana Claudia</h5>
+                                    <p class="text-muted small mb-2">Postado em 15/06/2023</p>
+                                    <p>Na minha escola nunca tivemos educação sexual adequada. Aprendi tudo sozinha na internet, com muitos erros pelo caminho. É fundamental que as escolas abordem esse tema com seriedade e sem tabus.</p>
+                                    
+                                    <div class="comment-actions">
+                                        <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (24)</span>
+                                        <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                    </div>
+                                    
+                                    <!-- Reply -->
+                                    <div class="comment mt-3 ms-4">
+                                        <div class="d-flex">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="user-avatar" style="width: 40px; height: 40px;">
+                                            <div>
+                                                <h5 class="mb-1">Maria Eduarda</h5>
+                                                <p class="text-muted small mb-2">Postado em 16/06/2023</p>
+                                                <p>Concordo totalmente! Educação sexual nas escolas poderia prevenir tantos problemas. Eu mesma só fui aprender sobre métodos contraceptivos depois de uma gravidez não planejada.</p>
+                                                
+                                                <div class="comment-actions">
+                                                    <span class="action-btn like-btn active"><i class="fas fa-heart me-1"></i> Curtir (8)</span>
+                                                    <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comment wow fadeIn" data-wow-delay="0.7s">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User" class="user-avatar">
+                                <div>
+                                    <h5 class="mb-1">Carlos Silva</h5>
+                                    <p class="text-muted small mb-2">Postado em 10/06/2023</p>
+                                    <p>Sou professor e vejo como os meninos também precisam de educação sexual. Muitos ainda têm ideias erradas sobre consentimento e prevenção. Precisamos quebrar esses mitos desde cedo.</p>
+                                    
+                                    <div class="comment-actions">
+                                        <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (15)</span>
+                                        <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Comment Form -->
+                        <div class="comment-form wow fadeIn" data-wow-delay="0.8s">
+                            <h5 class="mb-3">Deixe seu comentário</h5>
+                            <form id="add-comment">
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="4" placeholder="Compartilhe sua experiência ou opinião sobre saúde sexual e reprodutiva..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar comentário</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 
-            </div>
-        </div>
-        <!-- Page Header End -->
-
-
-        <!-- Team Start-->
-        <div class="container-fluid team py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">Our Team</h4>
-                    <h1 class="mb-5 display-3">Meet With Our Expert Teacher</h1>
-                </div>
-                <div class="row g-5 justify-content-center">
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="team-item border border-primary img-border-radius overflow-hidden">
-                            <img src="img/team-1.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-icon d-flex align-items-center justify-content-center">
-                                <a class="share btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fas fa-share-alt"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle" href=""><i class="fab fa-instagram"></i></a>
+                <!-- Sidebar Column -->
+                <div class="col-lg-4 sidebar-content">
+                    <div class="content-section wow fadeIn" data-wow-delay="0.5s">
+                        <h4 class="mb-4">Dados sobre Saúde Sexual no Brasil</h4>
+                        <div class="list-group">
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Gravidez na Adolescência</h6>
+                                </div>
+                                <p class="mb-1">O Brasil registra cerca de 400 mil casos de gravidez na adolescência por ano, segundo o Ministério da Saúde.</p>
                             </div>
-                            <div class="team-content text-center py-3">
-                                <h4 class="text-primary">Linda Carlson</h4>
-                                <p class="text-muted mb-2">English Teacher</p>
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">ISTs</h6>
+                                </div>
+                                <p class="mb-1">Houve aumento de 40% nos casos de sífilis no Brasil entre 2019 e 2021, mostrando a necessidade de mais prevenção.</p>
+                            </div>
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Acesso a Contraceptivos</h6>
+                                </div>
+                                <p class="mb-1">30% das mulheres em idade reprodiva relatam dificuldades no acesso a métodos contraceptivos no SUS.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="team-item border border-primary img-border-radius overflow-hidden">
-                            <img src="img/team-2.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-icon d-flex align-items-center justify-content-center">
-                                <a class="share btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fas fa-share-alt"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                            <div class="team-content text-center py-3">
-                                <h4 class="text-primary">Linda Carlson</h4>
-                                <p class="text-muted mb-2">English Teacher</p>
-                            </div>
+                    
+                    <div class="content-section wow fadeIn" data-wow-delay="0.6s">
+                        <h4 class="mb-4">Serviços e Recursos</h4>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>Onde encontrar atendimento no SUS
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-prescription-bottle-alt text-primary me-2"></i>Métodos contraceptivos disponíveis
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-vial text-primary me-2"></i>Testes rápidos para ISTs
+                            </a>
+                            <a href="forum.html" class="list-group-item list-group-item-action">
+                                <i class="fas fa-comments text-primary me-2"></i>Fórum de dúvidas e discussões
+                            </a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="team-item border border-primary img-border-radius overflow-hidden">
-                            <img src="img/team-3.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-icon d-flex align-items-center justify-content-center">
-                                <a class="share btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fas fa-share-alt"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                            <div class="team-content text-center py-3">
-                                <h4 class="text-primary">Linda Carlson</h4>
-                                <p class="text-muted mb-2">English Teacher</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="team-item border border-primary img-border-radius overflow-hidden">
-                            <img src="img/team-4.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-icon d-flex align-items-center justify-content-center">
-                                <a class="share btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fas fa-share-alt"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="share-link btn btn-primary btn-md-square text-white rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                            <div class="team-content text-center py-3">
-                                <h4 class="text-primary">Linda Carlson</h4>
-                                <p class="text-muted mb-2">English Teacher</p>
-                            </div>
+                    
+                    <div class="content-section wow fadeIn" data-wow-delay="0.7s">
+                        <h4 class="mb-4">Você sabia?</h4>
+                        <div class="alert alert-primary">
+                            <p><i class="fas fa-info-circle me-2"></i> A Lei nº 9.263/96 garante o planejamento familiar como direito de todo cidadão, incluindo acesso a informações e métodos contraceptivos pelo SUS.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Team End-->
+    </div>
+    <!-- Content End -->
 
-
-
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright bg-dark py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>BleedWithDignity</a>, todos os direitos reservados.</span>
-                    </div>
-                    <div class="col-md-6 my-auto text-center text-md-end text-white">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a clas="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                    </div>
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>BleedWithDignity</a>, todos os direitos reservados.</span>
+                </div>
+                <div class="col-md-6 my-auto text-center text-md-end text-white">
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
                 </div>
             </div>
         </div>
-        <!-- Copyright End -->
+    </div>
+    <!-- Copyright End -->
 
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
-        
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -233,6 +458,104 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    </body>
-
+    
+    <script>
+        $(document).ready(function() {
+            // Like button functionality
+            $('.like-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                let countText = $(this).text();
+                let count = parseInt(countText.match(/\((\d+)\)/)[1]);
+                
+                if ($(this).hasClass('active')) {
+                    $(this).html('<i class="fas fa-heart me-1"></i> Curtir (' + (count + 1) + ')');
+                } else {
+                    $(this).html('<i class="fas fa-heart me-1"></i> Curtir (' + (count - 1) + ')');
+                }
+            });
+            
+            // Reply button functionality
+            $('.reply-btn').click(function(e) {
+                e.preventDefault();
+                let commentBox = $(this).closest('.comment').find('.comment').first();
+                
+                if (commentBox.length === 0) {
+                    // If no reply box exists, create one
+                    $(this).closest('.comment-actions').after(`
+                        <div class="comment mt-3 ms-4">
+                            <form class="reply-form">
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="2" placeholder="Escreva sua resposta..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm cancel-reply">Cancelar</button>
+                            </form>
+                        </div>
+                    `);
+                }
+            });
+            
+            // Cancel reply
+            $(document).on('click', '.cancel-reply', function() {
+                $(this).closest('.comment').remove();
+            });
+            
+            // Submit new comment
+            $('#add-comment').submit(function(e) {
+                e.preventDefault();
+                let commentText = $(this).find('textarea').val();
+                
+                if (commentText.trim() !== '') {
+                    let newComment = `
+                        <div class="comment">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar">
+                                <div>
+                                    <h5 class="mb-1">Você</h5>
+                                    <p class="text-muted small mb-2">Agora</p>
+                                    <p>${commentText}</p>
+                                    
+                                    <div class="comment-actions">
+                                        <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (0)</span>
+                                        <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    $('.comment-form').before(newComment);
+                    $(this).find('textarea').val('');
+                }
+            });
+            
+            // Submit reply
+            $(document).on('submit', '.reply-form', function(e) {
+                e.preventDefault();
+                let replyText = $(this).find('textarea').val();
+                
+                if (replyText.trim() !== '') {
+                    let newReply = `
+                        <div class="d-flex">
+                            <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar" style="width: 40px; height: 40px;">
+                            <div>
+                                <h5 class="mb-1">Você</h5>
+                                <p class="text-muted small mb-2">Agora</p>
+                                <p>${replyText}</p>
+                                
+                                <div class="comment-actions">
+                                    <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (0)</span>
+                                    <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    $(this).closest('.comment').html(newReply);
+                }
+            });
+        });
+    </script>
+</body>
 </html>
