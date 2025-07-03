@@ -1642,3 +1642,137 @@ h6,
                 border-top: none;
             }
         }
+
+        /*sustentabilidade ambiental*/
+        .content-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .comment-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .comment {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .comment-actions {
+            margin-top: 10px;
+        }
+        
+        .action-btn {
+            cursor: pointer;
+            margin-right: 15px;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .action-btn:hover {
+            color: #0d6efd;
+        }
+        
+        .action-btn.active {
+            color: #0d6efd;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .comment-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .highlight-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0d6efd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .fact-card {
+            border-left: 4px solid #20c997;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f0fff4;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .product-card {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #e9ecef;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-header {
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+            background-color: #20c997;
+        }
+        
+        .product-body {
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .img-border {
+            border: 3px solid #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .impact-list {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+
+        @media (max-width: 767.98px) {
+            .impact-list {
+                columns: 1;
+                -webkit-columns: 1;
+                -moz-columns: 1;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 991.98px) {
+            .sidebar-content {
+                order: -1;
+                margin-bottom: 30px;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+            
+            .comment-section {
+                margin-top: 0;
+                border-top: none;
+            }
+        }
