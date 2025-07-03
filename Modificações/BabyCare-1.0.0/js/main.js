@@ -269,7 +269,7 @@
                 $(this).closest('.forum-post').find('.comments-section').slideToggle();
             });
             
-            // Like button functionality
+            // botão de like
             $('.like-btn').click(function(e) {
                 e.preventDefault();
                 $(this).toggleClass('active');
@@ -282,7 +282,7 @@
                 }
             });
             
-            // Save button functionality
+            // botão salvar
             $('.save-btn').click(function(e) {
                 e.preventDefault();
                 $(this).toggleClass('active');
@@ -300,7 +300,7 @@
                 $('#post-title, #post-content, #post-tags').val('');
             });
             
-            // Comment form submission
+            // Comentários
             $('.comment-form').submit(function(e) {
                 e.preventDefault();
                 let commentText = $(this).find('input').val();
@@ -320,10 +320,206 @@
                     $(this).closest('.comments-section').find('.comment-form').before(newComment);
                     $(this).find('input').val('');
                     
-                    // Update comment count
+                    // update na quantidade de comentários
                     let commentCountElement = $(this).closest('.forum-post').find('.comment-btn span');
                     let currentCount = parseInt(commentCountElement.text());
                     commentCountElement.text(currentCount + 1);
+                }
+            });
+        });
+
+        //produtos menstruais para todos
+         $(document).ready(function() {
+            // Like button functionality
+            $('.like-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                let countText = $(this).text();
+                let count = parseInt(countText.match(/\((\d+)\)/)[1]);
+                
+                if ($(this).hasClass('active')) {
+                    $(this).html('<i class="fas fa-heart me-1"></i> Curtir (' + (count + 1) + ')');
+                } else {
+                    $(this).html('<i class="fas fa-heart me-1"></i> Curtir (' + (count - 1) + ')');
+                }
+            });
+            
+            // Reply button functionality
+            $('.reply-btn').click(function(e) {
+                e.preventDefault();
+                let commentBox = $(this).closest('.comment').find('.comment').first();
+                
+                if (commentBox.length === 0) {
+                    // If no reply box exists, create one
+                    $(this).closest('.comment-actions').after(`
+                        <div class="comment mt-3 ms-4">
+                            <form class="reply-form">
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="2" placeholder="Escreva sua resposta..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm cancel-reply">Cancelar</button>
+                            </form>
+                        </div>
+                    `);
+                }
+            });
+            
+            // Cancel reply
+            $(document).on('click', '.cancel-reply', function() {
+                $(this).closest('.comment').remove();
+            });
+            
+            // Submit new comment
+            $('#add-comment').submit(function(e) {
+                e.preventDefault();
+                let commentText = $(this).find('textarea').val();
+                
+                if (commentText.trim() !== '') {
+                    let newComment = `
+                        <div class="comment">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar">
+                                <div>
+                                    <h5 class="mb-1">Você</h5>
+                                    <p class="text-muted small mb-2">Agora</p>
+                                    <p>${commentText}</p>
+                                    
+                                    <div class="comment-actions">
+                                        <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (0)</span>
+                                        <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    $('.comment-form').before(newComment);
+                    $(this).find('textarea').val('');
+                }
+            });
+            
+            // Submit reply
+            $(document).on('submit', '.reply-form', function(e) {
+                e.preventDefault();
+                let replyText = $(this).find('textarea').val();
+                
+                if (replyText.trim() !== '') {
+                    let newReply = `
+                        <div class="d-flex">
+                            <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar" style="width: 40px; height: 40px;">
+                            <div>
+                                <h5 class="mb-1">Você</h5>
+                                <p class="text-muted small mb-2">Agora</p>
+                                <p>${replyText}</p>
+                                
+                                <div class="comment-actions">
+                                    <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (0)</span>
+                                    <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    $(this).closest('.comment').html(newReply);
+                }
+            });
+        });
+
+        //saúde sexual e reprodutiva
+          $(document).ready(function() {
+            // botão de like
+            $('.like-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                let countText = $(this).text();
+                let count = parseInt(countText.match(/\((\d+)\)/)[1]);
+                
+                if ($(this).hasClass('active')) {
+                    $(this).html('<i class="fas fa-heart me-1"></i> Curtir (' + (count + 1) + ')');
+                } else {
+                    $(this).html('<i class="fas fa-heart me-1"></i> Curtir (' + (count - 1) + ')');
+                }
+            });
+            
+            // responder
+            $('.reply-btn').click(function(e) {
+                e.preventDefault();
+                let commentBox = $(this).closest('.comment').find('.comment').first();
+                
+                if (commentBox.length === 0) {
+                
+                    $(this).closest('.comment-actions').after(`
+                        <div class="comment mt-3 ms-4">
+                            <form class="reply-form">
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="2" placeholder="Escreva sua resposta..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm cancel-reply">Cancelar</button>
+                            </form>
+                        </div>
+                    `);
+                }
+            });
+            
+            // cancelar resposta
+            $(document).on('click', '.cancel-reply', function() {
+                $(this).closest('.comment').remove();
+            });
+            
+            // Submeter novo comentário
+            $('#add-comment').submit(function(e) {
+                e.preventDefault();
+                let commentText = $(this).find('textarea').val();
+                
+                if (commentText.trim() !== '') {
+                    let newComment = `
+                        <div class="comment">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar">
+                                <div>
+                                    <h5 class="mb-1">Você</h5>
+                                    <p class="text-muted small mb-2">Agora</p>
+                                    <p>${commentText}</p>
+                                    
+                                    <div class="comment-actions">
+                                        <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (0)</span>
+                                        <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    $('.comment-form').before(newComment);
+                    $(this).find('textarea').val('');
+                }
+            });
+            
+            // comentar na postagem de algúem
+            $(document).on('submit', '.reply-form', function(e) {
+                e.preventDefault();
+                let replyText = $(this).find('textarea').val();
+                
+                if (replyText.trim() !== '') {
+                    let newReply = `
+                        <div class="d-flex">
+                            <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar" style="width: 40px; height: 40px;">
+                            <div>
+                                <h5 class="mb-1">Você</h5>
+                                <p class="text-muted small mb-2">Agora</p>
+                                <p>${replyText}</p>
+                                
+                                <div class="comment-actions">
+                                    <span class="action-btn like-btn"><i class="fas fa-heart me-1"></i> Curtir (0)</span>
+                                    <span class="action-btn reply-btn"><i class="fas fa-reply me-1"></i> Responder</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    $(this).closest('.comment').html(newReply);
                 }
             });
         });
