@@ -81,9 +81,9 @@
 
 })(jQuery);
 
-
+//dignidade menstrual
   $(document).ready(function() {
-            // Like button functionality
+            
             $('.like-btn').click(function(e) {
                 e.preventDefault();
                 $(this).toggleClass('active');
@@ -97,13 +97,13 @@
                 }
             });
             
-            // Reply button functionality
+            
             $('.reply-btn').click(function(e) {
                 e.preventDefault();
                 let commentBox = $(this).closest('.comment').find('.comment').first();
                 
                 if (commentBox.length === 0) {
-                    // If no reply box exists, create one
+                
                     $(this).closest('.comment-actions').after(`
                         <div class="comment mt-3 ms-4">
                             <form class="reply-form">
@@ -118,12 +118,12 @@
                 }
             });
             
-            // Cancel reply
+            // Cancelar comentário
             $(document).on('click', '.cancel-reply', function() {
                 $(this).closest('.comment').remove();
             });
             
-            // Submit new comment
+            // Novo comentário
             $('#add-comment').submit(function(e) {
                 e.preventDefault();
                 let commentText = $(this).find('textarea').val();
@@ -152,7 +152,7 @@
                 }
             });
             
-            // Submit reply
+            // Comentar
             $(document).on('submit', '.reply-form', function(e) {
                 e.preventDefault();
                 let replyText = $(this).find('textarea').val();
@@ -202,7 +202,10 @@
                         alert('Evento: ' + info.event.title);
                     }
                 });
-                
+
+
+
+                 //calendário
                 calendar.render();
             });
             
@@ -256,3 +259,72 @@
                     });
                 }
             }
+            
+
+            //fórum
+             $(document).ready(function() {
+            // Toggle comments section
+            $('.comment-btn').click(function(e) {
+                e.preventDefault();
+                $(this).closest('.forum-post').find('.comments-section').slideToggle();
+            });
+            
+            // Like button functionality
+            $('.like-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                let countElement = $(this).find('span');
+                let currentCount = parseInt(countElement.text());
+                if ($(this).hasClass('active')) {
+                    countElement.text(currentCount + 1);
+                } else {
+                    countElement.text(currentCount - 1);
+                }
+            });
+            
+            // Save button functionality
+            $('.save-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                if ($(this).hasClass('active')) {
+                    $(this).html('<i class="fas fa-bookmark me-1"></i> Salvo');
+                } else {
+                    $(this).html('<i class="fas fa-bookmark me-1"></i> Salvar');
+                }
+            });
+            
+            // Form submission
+            $('#post-form').submit(function(e) {
+                e.preventDefault();
+                alert('Post criado com sucesso!');
+                $('#post-title, #post-content, #post-tags').val('');
+            });
+            
+            // Comment form submission
+            $('.comment-form').submit(function(e) {
+                e.preventDefault();
+                let commentText = $(this).find('input').val();
+                if (commentText.trim() !== '') {
+                    let newComment = `
+                        <div class="comment">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                <div>
+                                    <strong>Você</strong>
+                                    <p class="small text-muted mb-1">Agora</p>
+                                    <p>${commentText}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $(this).closest('.comments-section').find('.comment-form').before(newComment);
+                    $(this).find('input').val('');
+                    
+                    // Update comment count
+                    let commentCountElement = $(this).closest('.forum-post').find('.comment-btn span');
+                    let currentCount = parseInt(commentCountElement.text());
+                    commentCountElement.text(currentCount + 1);
+                }
+            });
+        });
+
