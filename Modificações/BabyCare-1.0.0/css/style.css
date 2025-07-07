@@ -1829,3 +1829,65 @@ h6,
                 border-top: none;
             }
         }
+
+       /*login */
+       
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .login-card {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+            overflow: hidden;
+        }
+        .login-header {
+            background: linear-gradient(135deg, #6f42c1, #d63384);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .login-body {
+            padding: 30px;
+            background-color: #fff;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .divider-text {
+            padding: 0 10px;
+            color: #6c757d;
+        }
+        .forgot-password {
+            text-align: right;
+            display: block;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .btn-login {
+            background: linear-gradient(135deg, #6f42c1, #d63384);
+            border: none;
+            padding: 10px;
+            font-weight: 600;
+        }
+        .btn-login:hover {
+            background: linear-gradient(135deg, #5a32a8, #b52a6f);
+        }
+
+        .forgot-password {
+        display: block;
+        margin-top: 5px; 
+        margin-bottom: 15px;
+        text-align: right;
+        font-size: 0.85rem;
+        }

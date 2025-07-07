@@ -1106,3 +1106,47 @@
                 }
             });
         });
+
+ //login
+         $(document).ready(function() {
+            // Form submission
+            $('#loginForm').submit(function(e) {
+                e.preventDefault();
+                
+                // Simulate login (in a real app, you would make an AJAX call to your backend)
+                const email = $('#email').val();
+                const password = $('#password').val();
+                
+                // Basic validation
+                if(email && password) {
+                    // Show loading spinner
+                    $('#spinner').addClass('show');
+                    
+                    // Simulate API call delay
+                    setTimeout(function() {
+                        // Hide spinner
+                        $('#spinner').removeClass('show');
+                        
+                        // Check if credentials are valid (demo purposes)
+                        if(email === "usuario@exemplo.com" && password === "senha123") {
+                            // Redirect to dashboard
+                            window.location.href = 'index.html';
+                        } else {
+                            // Show error message
+                            alert('Email ou senha incorretos. Tente novamente.');
+                        }
+                    }, 1500);
+                } else {
+                    alert('Por favor, preencha todos os campos.');
+                }
+            });
+            
+            // Forgot password link
+            $('.forgot-password').click(function(e) {
+                e.preventDefault();
+                const email = prompt('Digite seu email para redefinir a senha:');
+                if(email) {
+                    alert('Um link para redefinir sua senha foi enviado para ' + email);
+                }
+            });
+        });
