@@ -1150,3 +1150,70 @@
                 }
             });
         });
+
+        //cadastro
+          $(document).ready(function() {
+            // Verificação de força da senha
+            $('#password').on('input', function() {
+                const password = $(this).val();
+                const strengthBar = $('#passwordStrengthBar');
+                let strength = 0;
+                
+                if (password.length > 7) strength += 1;
+                if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1;
+                if (password.match(/([0-9])/)) strength += 1;
+                if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1;
+                
+                // Atualiza a barra de força
+                switch(strength) {
+                    case 0:
+                        strengthBar.css('width', '0%').css('background', '#dc3545');
+                        break;
+                    case 1:
+                        strengthBar.css('width', '25%').css('background', '#dc3545');
+                        break;
+                    case 2:
+                        strengthBar.css('width', '50%').css('background', '#ffc107');
+                        break;
+                    case 3:
+                        strengthBar.css('width', '75%').css('background', '#28a745');
+                        break;
+                    case 4:
+                        strengthBar.css('width', '100%').css('background', '#28a745');
+                        break;
+                }
+            });
+
+            // Validação do formulário
+            $('#registerForm').submit(function(e) {
+                e.preventDefault();
+                
+                // Validações básicas
+                const password = $('#password').val();
+                const confirmPassword = $('#confirmPassword').val();
+                
+                if (password !== confirmPassword) {
+                    alert('As senhas não coincidem!');
+                    return;
+                }
+                
+                if (password.length < 8) {
+                    alert('A senha deve ter no mínimo 8 caracteres!');
+                    return;
+                }
+                
+                if (!$('#acceptTerms').is(':checked')) {
+                    alert('Você deve aceitar os termos e condições!');
+                    return;
+                }
+                
+                // Simular cadastro (em um sistema real, seria uma chamada AJAX)
+                $('#spinner').addClass('show');
+                
+                setTimeout(function() {
+                    $('#spinner').removeClass('show');
+                    alert('Cadastro realizado com sucesso! Redirecionando...');
+                    window.location.href = 'index.html'; // Redireciona após cadastro
+                }, 1500);
+            });
+        });

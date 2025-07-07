@@ -28,59 +28,7 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-        /* Estilos específicos para a página de cadastro */
-        .register-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .register-card {
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: none;
-            overflow: hidden;
-        }
-        .register-header {
-            background: linear-gradient(135deg, #6f42c1, #d63384);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .register-body {
-            padding: 30px;
-            background-color: #fff;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .btn-register {
-            background: linear-gradient(135deg, #6f42c1, #d63384);
-            border: none;
-            padding: 10px;
-            font-weight: 600;
-            width: 100%;
-        }
-        .btn-register:hover {
-            background: linear-gradient(135deg, #5a32a8, #b52a6f);
-        }
-        .password-strength {
-            height: 5px;
-            background: #eee;
-            margin-top: 5px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .password-strength-bar {
-            height: 100%;
-            width: 0%;
-            background: #dc3545;
-            transition: width 0.3s, background 0.3s;
-        }
-        .terms-text {
-            font-size: 0.85rem;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -267,73 +215,6 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     
-    <!-- Register Script -->
-    <script>
-        $(document).ready(function() {
-            // Verificação de força da senha
-            $('#password').on('input', function() {
-                const password = $(this).val();
-                const strengthBar = $('#passwordStrengthBar');
-                let strength = 0;
-                
-                if (password.length > 7) strength += 1;
-                if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1;
-                if (password.match(/([0-9])/)) strength += 1;
-                if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1;
-                
-                // Atualiza a barra de força
-                switch(strength) {
-                    case 0:
-                        strengthBar.css('width', '0%').css('background', '#dc3545');
-                        break;
-                    case 1:
-                        strengthBar.css('width', '25%').css('background', '#dc3545');
-                        break;
-                    case 2:
-                        strengthBar.css('width', '50%').css('background', '#ffc107');
-                        break;
-                    case 3:
-                        strengthBar.css('width', '75%').css('background', '#28a745');
-                        break;
-                    case 4:
-                        strengthBar.css('width', '100%').css('background', '#28a745');
-                        break;
-                }
-            });
-
-            // Validação do formulário
-            $('#registerForm').submit(function(e) {
-                e.preventDefault();
-                
-                // Validações básicas
-                const password = $('#password').val();
-                const confirmPassword = $('#confirmPassword').val();
-                
-                if (password !== confirmPassword) {
-                    alert('As senhas não coincidem!');
-                    return;
-                }
-                
-                if (password.length < 8) {
-                    alert('A senha deve ter no mínimo 8 caracteres!');
-                    return;
-                }
-                
-                if (!$('#acceptTerms').is(':checked')) {
-                    alert('Você deve aceitar os termos e condições!');
-                    return;
-                }
-                
-                // Simular cadastro (em um sistema real, seria uma chamada AJAX)
-                $('#spinner').addClass('show');
-                
-                setTimeout(function() {
-                    $('#spinner').removeClass('show');
-                    alert('Cadastro realizado com sucesso! Redirecionando...');
-                    window.location.href = 'index.html'; // Redireciona após cadastro
-                }, 1500);
-            });
-        });
-    </script>
+   
 </body>
 </html>
