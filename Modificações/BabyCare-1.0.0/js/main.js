@@ -178,6 +178,7 @@
                 }
             });
         });
+ //calendário
 
          let selectedDate = null;
             let selectedBloodDrop = 0;
@@ -193,19 +194,11 @@
                         left: 'prev,next today',
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    },
-                    dateClick: function(info) {
-                        selectedDate = info.dateStr;
-                        alert('Data selecionada: ' + info.dateStr + '\nAgora você pode registrar informações para este dia.');
-                    },
-                    eventClick: function(info) {
-                        alert('Evento: ' + info.event.title);
                     }
+                   
                 });
 
-
-
-                 //calendário
+                
                 calendar.render();
             });
             
@@ -223,19 +216,7 @@
                 }
             }
             
-            function selectBloodDrop(level) {
-                // Remove a seleção anterior
-                document.querySelectorAll('.blood-drop').forEach(drop => {
-                    drop.classList.remove('selected');
-                });
-                
-                // Adiciona a seleção atual
-                event.target.classList.add('selected');
-                selectedBloodDrop = level;
-                
-                // Mostra feedback visual
-                alert('Fluxo menstrual registrado como nível ' + level + ' para o dia ' + (selectedDate || 'selecione uma data'));
-            }
+           
             
             function selectEmoji(emoji) {
                 // Remove a seleção anterior
@@ -292,6 +273,7 @@
                     $(this).html('<i class="fas fa-bookmark me-1"></i> Salvar');
                 }
             });
+            
             
             // Form submission
             $('#post-form').submit(function(e) {
@@ -1207,7 +1189,7 @@
                     return;
                 }
                 
-                // Simular cadastro (em um sistema real, seria uma chamada AJAX)
+                
                 $('#spinner').addClass('show');
                 
                 setTimeout(function() {
@@ -1217,3 +1199,30 @@
                 }, 1500);
             });
         });
+
+
+//calendário menstrual não logado 
+
+function showLoginMessage() {
+    document.getElementById('login-message').style.display = 'block';
+}
+
+function closeLoginMessage() {
+    document.getElementById('login-message').style.display = 'none';
+}
+
+$(document).ready(function() {
+    $('#calendar').fullCalendar({
+        dayClick: function(date, jsEvent, view) {
+            showLoginMessage();
+        },
+        eventClick: function(calEvent, jsEvent, view) {
+            showLoginMessage();
+        },
+        events: [
+            { title: 'Evento 1', start: '2025-07-10' },
+            { title: 'Evento 2', start: '2025-07-15' }
+        ]
+    });
+});
+
