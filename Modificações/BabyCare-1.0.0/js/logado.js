@@ -67,3 +67,65 @@ window.onclick = function(event) {
         });
     }
 }
+
+//fórum
+             $(document).ready(function() {
+            // Toggle comments section
+            $('.comment-btn').click(function(e) {
+                e.preventDefault();
+                $(this).closest('.forum-post').find('.comments-section').slideToggle();
+            });
+            
+            // botão de like
+            $('.like-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                let countElement = $(this).find('span');
+                let currentCount = parseInt(countElement.text());
+                if ($(this).hasClass('active')) {
+                    countElement.text(currentCount + 1);
+                } else {
+                    countElement.text(currentCount - 1);
+                }
+            });
+            
+            // botão salvar
+            $('.save-btn').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                if ($(this).hasClass('active')) {
+                    $(this).html('<i class="fas fa-bookmark me-1"></i> Salvo');
+                } else {
+                    $(this).html('<i class="fas fa-bookmark me-1"></i> Salvar');
+                }
+            });
+            
+            
+          
+            // Comentários
+            $('.comment-form').submit(function(e) {
+                e.preventDefault();
+                let commentText = $(this).find('input').val();
+                if (commentText.trim() !== '') {
+                    let newComment = `
+                        <div class="comment">
+                            <div class="d-flex">
+                                <img src="https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100)}.jpg" alt="User" class="user-avatar me-3" style="width: 40px; height: 40px;">
+                                <div>
+                                    <strong>Você</strong>
+                                    <p class="small text-muted mb-1">Agora</p>
+                                    <p>${commentText}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $(this).closest('.comments-section').find('.comment-form').before(newComment);
+                    $(this).find('input').val('');
+                    
+                    // update na quantidade de comentários
+                    let commentCountElement = $(this).closest('.forum-post').find('.comment-btn span');
+                    let currentCount = parseInt(commentCountElement.text());
+                    commentCountElement.text(currentCount + 1);
+                }
+            });
+        });

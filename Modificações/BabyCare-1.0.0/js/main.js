@@ -275,12 +275,7 @@
             });
             
             
-            // Form submission
-            $('#post-form').submit(function(e) {
-                e.preventDefault();
-                alert('Post criado com sucesso!');
-                $('#post-title, #post-content, #post-tags').val('');
-            });
+           
             
             // Comentários
             $('.comment-form').submit(function(e) {

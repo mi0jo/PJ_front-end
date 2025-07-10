@@ -77,7 +77,7 @@
                                 <a href="pobrezamenstrual.html" class="dropdown-item">Pobreza Menstrual</a>
                             </div>
                         </div>
-                        <a href="calendario.html" class="nav-item nav-link mx-2">Calendário Menstrual</a>
+                        <a href="calendariologado.html" class="nav-item nav-link mx-2">Calendário Menstrual</a>
                         <a href="forum.html" class="nav-item nav-link active">Fórum</a>
                         <a href="contact.html" class="nav-item nav-link mx-2">Contato</a>
             </div>
@@ -417,76 +417,6 @@
         </div>
         <!-- Copyright End -->
 
-        <script>
-
-       document.addEventListener('DOMContentLoaded', function () {
-    const isLoggedIn = false; 
-
-    // Referência ao modal de login
-    const loginModal = new bootstrap.Modal(document.getElementById('loginRequiredModal'));
-
-    // Função para exibir o modal caso o usuário não esteja logado
-    function checkLogin(event) {
-        if (!isLoggedIn) {
-            loginModal.show();
-            if (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            return false;
-        }
-        return true;
-    }
-
-    // Bloquear envio de novo post se não estiver logado
-    const postForm = document.getElementById('post-form');
-    if (postForm) {
-        postForm.addEventListener('submit', function (e) {
-            if (!checkLogin(e)) return;
-            alert('Post enviado (simulado).');
-        });
-    }
-
-    // Bloquear envio de comentários se não estiver logado
-    document.querySelectorAll('.comment-form').forEach(form => {
-        form.addEventListener('submit', function (e) {
-            if (!checkLogin(e)) return;
-            alert('Comentário enviado (simulado).');
-        });
-    });
-
-    // Spinner: esconde após carregamento
-    window.addEventListener('load', function () {
-        const spinner = document.getElementById('spinner');
-        if (spinner) {
-            spinner.classList.remove('show');
-            spinner.style.display = 'none';
-        }
-    });
-});
-
-</script>
-
-    <div class="modal fade" id="loginRequiredModal" tabindex="-1" aria-labelledby="loginRequiredModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="loginRequiredModalLabel">Acesso Restrito</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center py-4">
-                    <i class="fas fa-lock fa-4x text-primary mb-3"></i>
-                    <h4 class="mb-3">Você precisa estar logado</h4>
-                    <p>Para acessar o Fórum, faça login ou crie uma conta.</p>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Mais tarde</button>
-                    <a href="login.html" class="btn btn-primary">Fazer Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
@@ -502,8 +432,7 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
+    <script src="js/logado.js"></script>
     
 
     </body>
