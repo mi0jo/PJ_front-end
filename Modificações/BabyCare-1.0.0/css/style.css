@@ -1671,8 +1671,7 @@ h6,
             }
         }
 
-        /*pobreza menstrual
-          /* Estilos para a página de Pobreza Menstrual */
+        /*pobreza menstrual*/
         .content-section {
             background-color: #fff;
             border-radius: 10px;
@@ -1844,7 +1843,7 @@ h6,
             overflow: hidden;
         }
         .login-header {
-            background: linear-gradient(135deg, #d63384);
+             background-color: #FFD1DC; 
             color: white;
             padding: 20px;
             text-align: center;
@@ -1875,13 +1874,13 @@ h6,
             font-size: 0.9rem;
         }
         .btn-login {
-            background: linear-gradient(135deg, #6f42c1, #d63384);
+             background-color: #FFD1DC; 
             border: none;
             padding: 10px;
             font-weight: 600;
         }
         .btn-login:hover {
-            background: linear-gradient(135deg, #5a32a8, #b52a6f);
+             background-color: #FFD1DC; 
         }
 
         .forgot-password {
@@ -1905,7 +1904,7 @@ h6,
             overflow: hidden;
         }
         .register-header {
-            background: linear-gradient(135deg, #6f42c1, #d63384);
+            background-color: #FFD1DC; 
             color: white;
             padding: 20px;
             text-align: center;
@@ -1918,14 +1917,14 @@ h6,
             margin-bottom: 1.5rem;
         }
         .btn-register {
-            background: linear-gradient(135deg, #6f42c1, #d63384);
+            background-color: #FFD1DC; 
             border: none;
             padding: 10px;
             font-weight: 600;
             width: 100%;
         }
         .btn-register:hover {
-            background: linear-gradient(135deg, #5a32a8, #b52a6f);
+            background-color: #FFD1DC; 
         }
         .password-strength {
             height: 5px;
@@ -1942,4 +1941,120 @@ h6,
         }
         .terms-text {
             font-size: 0.85rem;
+        }
+
+          /*   página de perfil */
+       .profile-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+.profile-card {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    border: none;
+}
+.profile-card-header {
+    background-color: #FFD1DC; 
+    color: #333; 
+    border-radius: 15px 15px 0 0 !important;
+    padding: 15px 20px;
+}
+.profile-card-body {
+    padding: 25px;
+}
+.profile-info-item {
+    margin-bottom: 15px;
+}
+.profile-info-label {
+    font-weight: 600;
+    color: #D94D8C; 
+}
+.nav-pills .nav-link.active {
+    background-color: #FFD1DC; 
+    color: #333; 
+}
+.nav-pills .nav-link {
+    color: #D94D8C; 
+}
+.stats-item {
+    text-align: center;
+    padding: 15px;
+}
+.stats-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #D94D8C; 
+}
+.stats-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+ /* perfil admin */
+        .admin-badge {
+            background-color: #d63384;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .admin-card {
+            border-left: 4px solid #d63384;
+        }
+        .admin-stats {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .admin-table {
+            font-size: 0.9rem;
+        }
+        .admin-alert {
+            border-left: 4px solid #dc3545;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .content-card {
+            transition: all 0.3s;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .forum-post {
+            border-left: 3px solid #dee2e6;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+        .forum-post.reported {
+            border-left-color: #dc3545;
+            background-color: #fff5f5;
+        }
+        .settings-option {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .settings-option:last-child {
+            border-bottom: none;
         }
