@@ -578,15 +578,6 @@
     </div>
     <!-- Content End -->
 
-    <!-- Call to Action Start -->
-    <div class="container-fluid bg-primary call-to-action py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-5">
-            <h2 class="display-5 mb-4">Junte-se a Nós Nesta Causa</h2>
-            <p class="mb-4">A pobreza menstrual é um problema solucionável. Com informação e ação coletiva, podemos garantir que nenhuma mulher ou menina precise escolher entre comprar comida ou absorventes.</p>
-            <a href="contact.html" class="btn btn-light btn-lg py-3 px-5">Quero Ajudar</a>
-        </div>
-    </div>
-    <!-- Call to Action End -->
 
     <!-- Copyright Start -->
     <div class="container-fluid copyright bg-dark py-4">
@@ -618,6 +609,65 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     
+     
+    <!-- Modal de Login-->
+    <div class="modal fade" id="loginRequiredModal" tabindex="-1" aria-labelledby="loginRequiredModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="loginRequiredModalLabel">Acesso Restrito</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="fas fa-lock fa-4x text-primary mb-3"></i>
+                    <h4 class="mb-3">Você precisa estar logado</h4>
+                    <p>Para deixar um comentário, faça login ou crie uma conta.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Mais tarde</button>
+                    <a href="login.html" class="btn btn-primary">Fazer Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginModal = new bootstrap.Modal(document.getElementById('loginRequiredModal'));
     
+    function blockAllActions(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        loginModal.show();
+        return false;
+    }
+
+    const commentForm = document.getElementById('add-comment');
+    if (commentForm) {
+        const newForm = commentForm.cloneNode(true);
+        commentForm.parentNode.replaceChild(newForm, commentForm);
+        
+        newForm.addEventListener('submit', blockAllActions, true);
+        newForm.onsubmit = blockAllActions;
+        newForm.setAttribute('onsubmit', 'return false;');
+    }
+
+    document.querySelectorAll('.comment-section, .comment').forEach(section => {
+        section.addEventListener('click', function(e) {
+            if (!e.target.closest('a') && !e.target.closest('button')) {
+                blockAllActions(e);
+            }
+        }, true);
+    });
+
+    window.addEventListener('load', function() {
+        const spinner = document.getElementById('spinner');
+        if (spinner) {
+            spinner.style.display = 'none';
+        }
+    });
+});
+</script>
 </body>
 </html>
