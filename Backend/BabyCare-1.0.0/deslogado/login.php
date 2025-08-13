@@ -105,7 +105,7 @@
 
                     <!-- Register Link -->
                     <div class="text-center mt-4">
-                        <p>Não tem uma conta? <a href="cadastro.html" class="text-primary">Cadastre-se</a></p>
+                        <p>Não tem uma conta? <a href="cadastro.php" class="text-primary">Cadastre-se</a></p>
                     </div>
                 </div>
             </div>

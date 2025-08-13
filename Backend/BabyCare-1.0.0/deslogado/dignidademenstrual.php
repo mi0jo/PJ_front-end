@@ -270,16 +270,16 @@
                         <div class="content-section wow fadeIn" data-wow-delay="0.6s">
                             <h4 class="mb-4">Recursos Úteis</h4>
                             <div class="list-group">
-                                <a href="produtos.html" class="list-group-item list-group-item-action">
+                                <a href="produtos.php" class="list-group-item list-group-item-action">
                                     <i class="fas fa-box-open text-primary me-2"></i>Tipos de produtos menstruais
                                 </a>
-                                <a href="sustentabilidade.html" class="list-group-item list-group-item-action">
+                                <a href="sustentabilidade.php" class="list-group-item list-group-item-action">
                                     <i class="fas fa-leaf text-primary me-2"></i>Opções sustentáveis
                                 </a>
-                                <a href="pobrezamenstrual.html" class="list-group-item list-group-item-action">
+                                <a href="pobrezamenstrual.php" class="list-group-item list-group-item-action">
                                     <i class="fas fa-hand-holding-heart text-primary me-2"></i>Combate à pobreza menstrual
                                 </a>
-                                <a href="forum.html" class="list-group-item list-group-item-action">
+                                <a href="forum.php" class="list-group-item list-group-item-action">
                                     <i class="fas fa-comments text-primary me-2"></i>Fórum de discussões
                                 </a>
                             </div>
@@ -331,25 +331,9 @@
     <script src="../js/main.js"></script>
  
     <!-- Modal de Login-->
-    <div class="modal fade" id="loginRequiredModal" tabindex="-1" aria-labelledby="loginRequiredModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="loginRequiredModalLabel">Acesso Restrito</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center py-4">
-                    <i class="fas fa-lock fa-4x text-primary mb-3"></i>
-                    <h4 class="mb-3">Você precisa estar logado</h4>
-                    <p>Para deixar um comentário, faça login ou crie uma conta.</p>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Mais tarde</button>
-                    <a href="login.html" class="btn btn-primary">Fazer Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+   require("../include/modallogindeslogado.php");
+   ?>
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {

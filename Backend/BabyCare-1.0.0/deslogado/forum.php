@@ -411,7 +411,7 @@
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Mais tarde</button>
-                    <a href="login.html" class="btn btn-primary">Fazer Login</a>
+                    <a href="login.php" class="btn btn-primary">Fazer Login</a>
                 </div>
             </div>
         </div>

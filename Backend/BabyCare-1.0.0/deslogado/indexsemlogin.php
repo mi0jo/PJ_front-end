@@ -142,11 +142,11 @@ Acreditamos que conhecimento é poder, e por isso disponibilizamos conteúdos so
                     <div class="blog-content d-flex align-items-center px-4 py-3 bg-light"></div>
                     <div class="px-4 pb-4 bg-light rounded-bottom flex-grow-1 d-flex flex-column"> 
                         <div class="blog-text-inner mb-3"> 
-                            <a href="dignidademenstrual.html" class="h4">O que é dignidade menstrual?</a>
+                            <a href="dignidademenstrual.php" class="h4">O que é dignidade menstrual?</a>
                             <p class="mt-3 mb-4">Descubra o que é dignidade menstrual e os conceitos envolvendo esse tópico.</p>
                         </div>
                         <div class="text-center mt-auto"> 
-                            <a href="dignidademenstrual.html" class="btn btn-primary text-white px-4 py-2 mb-3 btn-border-radius">Saiba mais</a>
+                            <a href="dignidademenstrual.php" class="btn btn-primary text-white px-4 py-2 mb-3 btn-border-radius">Saiba mais</a>
                         </div>
                     </div>
                 </div>
@@ -162,11 +162,11 @@ Acreditamos que conhecimento é poder, e por isso disponibilizamos conteúdos so
                     <div class="blog-content d-flex align-items-center px-4 py-3 bg-light"></div>
                     <div class="px-4 pb-4 bg-light rounded-bottom flex-grow-1 d-flex flex-column">
                         <div class="blog-text-inner mb-3">
-                            <a href="ciclomenstrual.html" class="h4">Ciclo menstrual</a>
+                            <a href="ciclomenstrual.php" class="h4">Ciclo menstrual</a>
                             <p class="mt-3 mb-4">Descubra tudo sobre as etapas que o ciclo menstrual possue.</p>
                         </div>
                         <div class="text-center mt-auto">
-                            <a href="ciclomenstrual.html" class="btn btn-primary text-white px-4 py-2 mb-3 btn-border-radius">Saiba mais</a>
+                            <a href="ciclomenstrual.php" class="btn btn-primary text-white px-4 py-2 mb-3 btn-border-radius">Saiba mais</a>
                         </div>
                     </div>
                 </div>
@@ -182,11 +182,11 @@ Acreditamos que conhecimento é poder, e por isso disponibilizamos conteúdos so
                     <div class="blog-content d-flex align-items-center px-4 py-3 bg-light"></div>
                     <div class="px-4 pb-4 bg-light rounded-bottom flex-grow-1 d-flex flex-column">
                         <div class="blog-text-inner mb-3">
-                            <a href="produtos.html" class="h4">Produtos Menstruais para todos</a>
+                            <a href="produtos.php" class="h4">Produtos Menstruais para todos</a>
                             <p class="mt-3 mb-4">Descubra os programas do governo que envolvem produtos menstruais para pessoas de baixa renda.</p>
                         </div>
                         <div class="text-center mt-auto">
-                            <a href="produtos.html" class="btn btn-primary text-white px-4 py-2 mb-3 btn-border-radius">Saiba mais</a>
+                            <a href="produtos.php" class="btn btn-primary text-white px-4 py-2 mb-3 btn-border-radius">Saiba mais</a>
                         </div>
                     </div>
                 </div>
