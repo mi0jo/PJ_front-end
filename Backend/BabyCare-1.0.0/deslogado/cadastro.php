@@ -130,7 +130,7 @@
                         <button type="submit" class="btn btn-register text-white py-2 mt-3">Criar conta</button>
 
                         <div class="text-center mt-4">
-                            <p>Já tem uma conta? <a href="login.html" class="text-primary">Faça login</a></p>
+                            <p>Já tem uma conta? <a href="login.php" class="text-primary">Faça login</a></p>
                         </div>
                     </form>
                 </div>
